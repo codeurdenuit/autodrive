@@ -1,0 +1,18 @@
+{
+  "name": "autodrive",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^3.0.2"
+  },
+  "author": "codeur de nuit",
+  "dependencies": {
+    "ammo.js": "^0.0.10",
+    "three": "^0.143.0"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autodrive</title>
+  <script src="./index.js" type="module"></script>
+  <style>
+    .render {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .sensor {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      transform: scale(2);
+      image-rendering: pixelated;
+    }
+
+    .lil-gui.autoPlace.network {
+      top: 60px;
+      bottom: auto;
+    }
+
+    .network {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" class="render">
+</body>
+
+</html>
