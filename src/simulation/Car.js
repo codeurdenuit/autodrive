@@ -9,7 +9,7 @@ let geometryWheelR
 let texture
 
 const minYawFrequency = 0.1 // loop
-const maxYawFrequency = 2 // unstable vehicle
+const maxYawFrequency = 3 // unstable vehicle
 const minSpeedAverage = 2.5
 
 const DISABLE_DEACTIVATION = 4;
@@ -327,12 +327,18 @@ export default class Car {
     if (this.controller.evaluation) {
       if (ss.lifetime > 7 && ss.distance / ss.lifetime < minSpeedAverage) {
         this.controller.evaluation(this.sensors, duration)
+        console.log('minSpeedAverage')
         this.reset()
-      } else if (ss.lifetime > 7 && ss.yawFrequency > maxYawFrequency) { // too much instability
+      } else if (ss.lifetime > 10 && ss.yawFrequency > maxYawFrequency) { // too much instability
+        console.log('instability', ss.yawFrequency)
         this.reset()
         this.controller.evaluation(this.sensors, duration)
+      } else if (ss.lifetime > 7 && ss.yawFrequency < minYawFrequency) { // loop
+        console.log('loop')
+        this.reset()
       } else if (ss.collision) {
         this.controller.evaluation(this.sensors, duration)
+        console.log('collision')
         this.reset()
       }
     } else {
